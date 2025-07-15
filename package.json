@@ -1,0 +1,26 @@
+{
+  "name": "battleships",
+  "version": "1.0.0",
+  "description": "This project is to make battleships using the TDD principles.",
+  "homepage": "https://github.com/PotatoTurtles/Battleships#readme",
+  "bugs": {
+    "url": "https://github.com/PotatoTurtles/Battleships/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PotatoTurtles/Battleships.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "babel-jest": "^30.0.4",
+    "jest": "^30.0.4"
+  }
+}
