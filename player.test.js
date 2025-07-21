@@ -1,5 +1,5 @@
-let player = require('./player.js');
-let board = require('./gameboard.js');
+import player from './player.js';
+import board from './gameboard.js';
 
 test('Does receive hit properly',()=>{
     let play = new player(true);

@@ -5,6 +5,13 @@ class ship{
     get size(){
         return this.places.length
     }
+    hasIndex(x,y){
+        return this.places.some(e => {
+            if(e[0]==x&&e[1]==y){
+                return true
+            }
+        });
+    }
     hit(x,y){
         for(let i = 0;i<this.places.length;i++){
             if(this.places[i][0]==x&&this.places[i][1]==y){
@@ -18,4 +25,4 @@ class ship{
         return this.size>0?false:true
     }
 }
-module.exports=ship;
+export default ship;

@@ -1,4 +1,4 @@
-let ship = require('./ship.js');
+import ship from './ship.js';
 
 test('Testing Is Sunk',()=>{
     let instance = new ship([]);

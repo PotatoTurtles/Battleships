@@ -1,24 +1,52 @@
-let ship = require('./ship.js');
+import ship from './ship.js';
 
 class gameboard{
     constructor(hits=[],misses=[],...ships){
-        this.hits=hits;
-        this.misses=misses;
         this.ships=ships.map((arr)=>new ship(arr));
+        this.misses=[];
+        this.hits=[];
+
+        hits.forEach(e=>{
+            if(this.receiveAttack(e[0],e[1])){
+                this.hits.push([e[0],e[1]]);
+            }
+            else{
+                this.misses.push([e[0],e[1]]);
+            }
+        })
+        misses.forEach(e=>{
+            if(!this.receiveAttack(e[0],e[1])){
+                this.misses.push([e[0],e[1]]);
+            }
+            else{
+                this.hits.push([e[0],e[1]]);
+            }
+        })
     }
-    addShip(start,end){
-        let dx = (end[0]-start[0]);
-        let dy = (end[1]-start[1]);
-
-        let dock = [];
-        for(let i = 0;Math.abs(dx)>=i||Math.abs(dy)>=i;i++){
-            dock.push([i*(dx/Math.abs(dx)||0)+start[0],i*(dy/Math.abs(dy)||0)+start[1]]);
-        }
-
-        return this.ships.push(new ship(dock))
+    addShip(arr){
+        return this.ships.push(new ship(arr))
+    }
+    hasIndex(x,y){
+        return this.ships.some(e=>{
+            if(e.hasIndex(x,y)){
+                return true
+            }
+        })
     }
     receiveAttack(x,y){
         let check = false
+
+        for(let i = 0;i<this.hits.length;i++){
+            if(this.hits[i][0]==x&&this.hits[i][1]==y){
+                return 0
+            }
+        }
+        for(let i = 0;i<this.misses.length;i++){
+            if(this.misses[i][0]==x&&this.misses[i][1]==y){
+                return 0
+            }
+        }
+
         for(let i = 0;i<this.ships.length;i++){
             if(this.ships[i].hit(x,y)){
                 check=true
@@ -40,5 +68,14 @@ class gameboard{
         }
         return false
     }
+    get shipsSunk(){
+        let tally = 0
+        for(let i = 0; i<this.ships.length;i++){
+            if(!this.ships[i].isSunk){
+                tally++
+            }
+        }
+        return tally
+    }
 }
-module.exports=gameboard;
+export default gameboard;
