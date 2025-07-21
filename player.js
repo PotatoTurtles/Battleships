@@ -33,22 +33,27 @@ class player{
             }
             opponent.populateBoard(opponent.isPlayer);
             if(!this.enemy.checkAlive()){
-                alert('You dead asf lol');
+                let rightCount = document.querySelector('.playerLeft')
+                rightCount.textContent=`Player Ships Remaining: 0`
+                alert('Sorry, you lose.');
             }
             if(!this.checkAlive()){
-                alert('Enemy dead asf my boy');
+                alert('Congratulations! You Win!');
             }
         }
         else{
             if(!this.enemy.checkAlive()){
-                alert('You dead asf lol');
+                alert('Sorry, you lose.');
             }
             if(!this.checkAlive()){
-                alert('Enemy dead asf my boy');
+                alert('Congratulations! You Win!');
             }
         }
     }
     initializeShips(){
+        this.board.ships=[];
+        this.board.hits=[]
+        this.board.misses=[]
         let shipLengths = [1,1,1,1,2,2,2,3,3,4];
 
         while(shipLengths.length>0){

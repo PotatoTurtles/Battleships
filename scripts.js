@@ -13,7 +13,18 @@ play2.initializeShips()
 play1.addEnemy(play2);
 play2.addEnemy(play1);
 
+let leftCount = document.querySelector('.enemyLeft');
+let rightCount = document.querySelector('.playerLeft')
+
 b1.addEventListener('click',()=>{
+    leftCount.textContent=`Enemy Ships Remaining: ${play1.board.shipsRemaining}`
     console.log('Location selection validated!')
     play1.randAttack(play2);
+    rightCount.textContent=`Player Ships Remaining: ${play2.board.shipsRemaining}`
+})
+
+let pButton = document.querySelector('button#pButton');
+pButton.addEventListener('click',()=>{
+    play1.initializeShips()
+    play2.initializeShips();
 })

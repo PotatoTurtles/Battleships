@@ -68,7 +68,7 @@ class gameboard{
         }
         return false
     }
-    get shipsSunk(){
+    get shipsRemaining(){
         let tally = 0
         for(let i = 0; i<this.ships.length;i++){
             if(!this.ships[i].isSunk){

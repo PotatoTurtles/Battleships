@@ -39,21 +39,24 @@ export default function build(player,showShip){
                         }
                         build(player,showShip)
                         if(!player.enemy.checkAlive()){
-                            alert('You dead asf lol');
+                            alert('Sorry, you lose.');
                             e.stopPropagation();
                         }
                         else if(!player.checkAlive()){
-                            alert('Enemy dead asf my boy');
+                            
                             e.stopPropagation();
+                            let leftCount = document.querySelector('.enemyLeft')
+                            leftCount.textContent=`Enemy Ships Remaining: 0`;
+                            alert('Congratulations! You Win!');
                         }
                     }
                     else{
                         if(!player.enemy.checkAlive()){
-                            alert('You dead asf lol');
+                            alert('Sorry, you lose.');
                             e.stopPropagation();
                         }
                         else if(!player.checkAlive()){
-                            alert('Enemy dead asf my boy');
+                            alert('Congratulations! You Win!');
                             e.stopPropagation();
                         }
                     }

@@ -4,43 +4,50 @@
     box-sizing: border-box;
 }
 body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     width:100vw;
     height: 100vh;
 
-    background-color: rgb(140, 9, 9);
+    background-color: #2A3439;
 }
 header{
-    height: 10vh;
-    width: 100vw;
-    background-color: aqua;
+    width: min-content;
+    padding: 2vh 5vw;
+    background-color: cadetblue;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 0.5vw;
 }
 h2{
-    background-color: blue;
+    text-align: center;
+    min-width: 10vw;
 }
-
 main{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10vw;
 
-    height: 80vh;
+    /* height: 90vh; */
 }
 
 .enemy,.player{
     background-color: cadetblue;
-    width: 30vw;
-    height: 50vh;
+    width: 60vh;
+    height: 60vh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1vh;
 
-    padding: 2vw;
+    padding: 0.5vw;
+    border-radius: 0.5vw;
 }
 
 footer{
@@ -55,11 +62,10 @@ footer{
 
     display: grid;
     grid: repeat(10,1fr) / repeat(10,1fr);
-
-    background-color: blueviolet;
 }
 .board{
     background-color: rgb(4, 219, 198);
+    border: 0.5px dashed rgba(0, 0, 0, 0.558);
 }
 
 .board:hover{
@@ -83,4 +89,18 @@ footer{
 .ship:hover{
     background-color: rgb(0, 116, 45);
 }
+.playerLeft,.enemyLeft{
+    position: absolute;
+    top: 1vw;
+    padding: 1vw;
+    background-color: cadetblue;
+    border-radius: 0.5vw;
+}
+.enemyLeft{
+    left: 1vw;
+}
+.playerLeft{
+    right: 1vw;
+}
+
 
